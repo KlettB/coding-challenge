@@ -1,8 +1,8 @@
 {
-  "name": "driver-data",
+  "name": "kinexon-driver-coding-challenge",
   "version": "1.1.0",
-  "description": "",
-  "main": "server.js",
+  "description": "wysiwyg",
+  "main": "index.js",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
@@ -12,11 +12,11 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
     "url": "."
   },
-  "author": "Kinexon"
+  "author": "Kinexon && Bastian Klett"
 }
