@@ -11,13 +11,16 @@ const PORT = process.env.PORT || 3000
 const app = express()
 
 app.use(cors())
+app.use(express.static(path.resolve(__dirname, '../client/dist')))
 
 setupDriverMockData()
 setInterval(randomizeDriverLocation, FIVE_SECONDS)
 
 app.get('/drivers', drivers.get)
 
-// TODO: Serve Client
+app.get('*', (request, response) => {
+    response.sendFile(path.resolve(__dirname, '../client/dist/index.html'))
+})
 
 app.listen(PORT, () => {
     console.log(`API is listening on ${PORT}`)
