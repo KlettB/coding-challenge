@@ -1,18 +1,29 @@
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 import { AppComponent } from './app.component';
+import { FilterPipe } from './pipes/filter.pipe';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { SortPipe } from './pipes/sort.pipe';
+import { DriverListComponent } from './components/driver-list/driver-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FilterPipe,
     NavigationComponent,
+    SortPipe,
+    DriverListComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    HttpClientJsonpModule,
+    FormsModule,
+    GoogleMapsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

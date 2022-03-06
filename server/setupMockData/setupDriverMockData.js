@@ -2,7 +2,6 @@ const randopeep = require('randopeep')
 const fs = require('fs')
 
 module.exports.setupDriverMockData = () => {
-
     class Driver {
         constructor() {
             this.driverGender = ['male', 'female'][Math.floor(Math.random() * 2)],
@@ -13,7 +12,7 @@ module.exports.setupDriverMockData = () => {
             this.driverInfo = randopeep.corporate.catchPhrase(1),
             this.carMake = randopeep.corporate.name('large', 1),
             this.kmDriven = Math.floor(Math.random() * 100000),
-            this.location = randopeep.address.geo()
+            this.location = {lat: (Math.floor((Math.random() * 100000) + 750000) / 1000000) + 41, lng: (((Math.floor((Math.random() * 100000) + 650000) / 1000000) + 87)) * -1 }
         }
     }
 
