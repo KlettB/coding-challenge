@@ -33,7 +33,6 @@ export class AppComponent implements OnInit {
   }
 
   loadDrivers() {
-    console.log('Oh oh')
     this.driversService.getDrivers().subscribe((data: Array<Drivers>) => {
       this.drivers = data;
     });
