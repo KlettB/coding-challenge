@@ -5,7 +5,9 @@
     "outDir": "./out-tsc/spec",
     "types": [
       "jest",
-      "node"
+      "node",
+      "googlemaps",
+      "google",
     ]
   },
   "files": [
