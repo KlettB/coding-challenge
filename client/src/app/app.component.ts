@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-import { DriversService } from './services/drivers.service';
 import { environment } from '../environments/environment';
+import { DriversService } from './services/drivers.service';
+import { GoogleMapsService } from './services/google-maps.service';
 
 @Component({
   selector: 'app-root',
@@ -25,12 +26,8 @@ export class AppComponent implements OnInit {
     disableDefaultUI: true,
   };
 
-  constructor(public driversService: DriversService, httpClient: HttpClient) {
-    this.isGoogleMapsApiLoaded = httpClient.jsonp('https://maps.googleapis.com/maps/api/js?key=' + this.googleMapsApiKey, 'callback')
-      .pipe(
-        map(() => true),
-        catchError(() => of(false)),
-      );
+  constructor(public driversService: DriversService, public googleMapsService: GoogleMapsService) {
+    this.isGoogleMapsApiLoaded = this.googleMapsService.initGoogleMaps()
   }
 
   ngOnInit() {

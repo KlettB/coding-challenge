@@ -25,7 +25,13 @@ import { DriverListComponent } from './components/driver-list/driver-list.compon
     FormsModule,
     GoogleMapsModule,
   ],
-  providers: [],
+  providers: [
+    HttpClientModule
+  ],
+  exports: [
+    FilterPipe,
+    SortPipe,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

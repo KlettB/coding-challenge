@@ -21,7 +21,7 @@ export class DriversService {
   };
   
   // TODO: Add Driver type
-  // TODO: Subscribe to Data change
+  // TODO: Subscribe to data change
   getDrivers(): Observable<any> {
     return this.http
       .get<any>(this.apiUrl + '/drivers')
@@ -29,6 +29,7 @@ export class DriversService {
   }
 
   // TODO: Show error message in UI component
+  /* istanbul ignore next */
   handleError(error: any) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
