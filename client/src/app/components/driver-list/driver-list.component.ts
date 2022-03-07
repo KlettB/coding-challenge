@@ -8,6 +8,7 @@ export class DriverListComponent {
   @Input() drivers: any;
   @Input() filterBy: any;
   @Output() newUpdateHoveredDriverEvent = new EventEmitter<string>();
+  @Output("updateDriverLocation") updateDriverLocation: EventEmitter<any> = new EventEmitter();
 
   showSortByMenu: boolean = false;
   selectedSortByOption: string = '';

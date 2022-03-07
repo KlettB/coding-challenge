@@ -20,15 +20,12 @@ export class DriversService {
     }),
   };
   
-  // TODO: Add Driver type
-  // TODO: Subscribe to data change
-  getDrivers(): Observable<any> {
+  getDrivers(): Observable<Drivers[]> {
     return this.http
       .get<any>(this.apiUrl + '/drivers')
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  // TODO: Show error message in UI component
   /* istanbul ignore next */
   handleError(error: any) {
     let errorMessage = '';
@@ -43,4 +40,21 @@ export class DriversService {
     });
   }
 
+}
+
+export interface Drivers {
+  driverName: string;
+  driverGender: string;
+  driverCityOrigin: string;
+  driverLanguage: string;
+  driverPhone: string;
+  driverInfo: string;
+  carMake: string;
+  kmDriven: string;
+  location: Location;
+}
+
+export interface Location {
+  lat: number;
+  lng: number;
 }

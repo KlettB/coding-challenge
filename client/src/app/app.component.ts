@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { environment } from '../environments/environment';
-import { DriversService } from './services/drivers.service';
+import { Drivers, DriversService } from './services/drivers.service';
 import { GoogleMapsService } from './services/google-maps.service';
 
 @Component({
@@ -14,10 +12,10 @@ import { GoogleMapsService } from './services/google-maps.service';
 })
 export class AppComponent implements OnInit {
 
-  drivers: any = [];
+  drivers: Drivers[] = [];
   isGoogleMapsApiLoaded: Observable<boolean>;
   googleMapsApiKey = environment.googleMapsApiKey;
-  filterBy: any;
+  filterBy: string = '';
   lastHoveredDriverName: string = '';
 
   options: google.maps.MapOptions = {
@@ -35,7 +33,8 @@ export class AppComponent implements OnInit {
   }
 
   loadDrivers() {
-    this.driversService.getDrivers().subscribe((data: Array<any>) => {
+    console.log('Oh oh')
+    this.driversService.getDrivers().subscribe((data: Array<Drivers>) => {
       this.drivers = data;
     });
   }

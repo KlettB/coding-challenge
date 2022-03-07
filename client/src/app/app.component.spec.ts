@@ -12,7 +12,10 @@ import { SortPipe } from './pipes/sort.pipe';
 import { DriversService } from './services/drivers.service';
 import { GoogleMapsService } from './services/google-maps.service';
 
-const driversMock = [{driverName: 'Alain Prost'}, {driverName: 'Nigel Mansell'}]
+const driversMock = [
+  {driverName: 'Alain Prost', driverGender: 'male', driverCityOrigin: 'Stuttgart', driverLanguage: 'de', driverPhone: '023782', driverInfo: 'Nice Dude', carMake: 'Volvo', kmDriven: '28392', location: {lat: 22.9403, lng: -23.2323}}, 
+  {driverName: 'Nigel Mansell', driverGender: 'male', driverCityOrigin: 'Stuttgart', driverLanguage: 'de', driverPhone: '023782', driverInfo: 'Nice Dude', carMake: 'Volvo', kmDriven: '28392', location: {lat: 2.9403, lng: -23.2323}}
+];
 
 describe('AppComponent', () => {
   let component: AppComponent;
