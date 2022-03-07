@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   lastHoveredDriverName: string = '';
 
   options: google.maps.MapOptions = {
-    center: {lat: 41.852091, lng: -87.778973},
+    center: {lat: 41.852091, lng: -87.878973},
     zoom: 11,
     disableDefaultUI: true,
   };

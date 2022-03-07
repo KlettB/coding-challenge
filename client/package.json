@@ -60,7 +60,6 @@
     "jest": "^27.5.1",
     "jest-createspyobj": "^2.0.0",
     "jest-preset-angular": "^11.1.1",
-    "karma-coverage": "~2.1.0",
     "ng-mocks": "^13.1.0",
     "postcss": "^8.4.7",
     "tailwindcss": "^3.0.23",
