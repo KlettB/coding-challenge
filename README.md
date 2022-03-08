@@ -1,4 +1,4 @@
-![100% Code Coverage](https://shields.io/badge/coverage-100%25-brightgreen)
+![100% Code Coverage](https://shields.io/badge/coverage-100%25-brightgreen) ![Build successfull](https://img.shields.io/badge/build-passing-brightgreen) 
 
 # Coding Challenge
 
