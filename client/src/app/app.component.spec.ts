@@ -6,6 +6,7 @@ import { of } from 'rxjs';
  
 import { AppComponent } from './app.component';
 import { DriverListComponent } from './components/driver-list/driver-list.component';
+import { MobieViewStateComponent } from './components/mobie-view-state/mobie-view-state.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
@@ -31,6 +32,7 @@ describe('AppComponent', () => {
         NavigationComponent,
         FilterPipe, 
         SortPipe,
+        MobieViewStateComponent,
       ],
       imports: [
         GoogleMapsModule,

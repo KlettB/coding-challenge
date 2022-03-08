@@ -10,6 +10,7 @@ git clone https://github.com/KlettB/coding-challenge.git
 npm install
 yarn start:dev
 ```
+<sub><sup>(The GoogleMaps Component won´t work on localhost because the API key is restricted to my IP and Domain.)</sup></sub>
 
 ## Hosted on Heroku
 
