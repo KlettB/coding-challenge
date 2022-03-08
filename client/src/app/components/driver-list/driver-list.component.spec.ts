@@ -58,4 +58,20 @@ describe('DriverListComponent', () => {
     expect(component.newUpdateHoveredDriverEvent.emit).toHaveBeenCalledWith('Nikki');
   });
 
+  it('should show detail view and update parent component', () => {
+    jest.spyOn(component.newIsDriverDetailViewVisibileEvent, 'emit');
+
+    component.showDriverDetailView('Nikki Lauda');
+
+    expect(component.newIsDriverDetailViewVisibileEvent.emit).toHaveBeenCalledWith(true);
+  });
+
+  it('should hide detail view and update parent component', () => {
+    jest.spyOn(component.newIsDriverDetailViewVisibileEvent, 'emit');
+
+    component.hideDriverDetailView();
+
+    expect(component.newIsDriverDetailViewVisibileEvent.emit).toHaveBeenCalledWith(false);
+  });
+
 });

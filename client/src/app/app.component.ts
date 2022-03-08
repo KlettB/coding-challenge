@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   googleMapsApiKey = environment.googleMapsApiKey;
   filterBy: string = '';
   lastHoveredDriverName: string = '';
+  isDriverDetailViewVisible: any;
 
   options: google.maps.MapOptions = {
     center: {lat: 41.852091, lng: -87.878973},
@@ -39,7 +40,8 @@ export class AppComponent implements OnInit {
   }
 
   getMarkerOptions(driverName: string) {
-    const opacity = driverName === this.lastHoveredDriverName ? 1 : 0.6;
+    const opacityForOtherDrivers = this.isDriverDetailViewVisible ? 0 : 0.6
+    const opacity = driverName === this.lastHoveredDriverName ? 1 : opacityForOtherDrivers;
 
     return {
       draggable: false,
@@ -51,9 +53,12 @@ export class AppComponent implements OnInit {
     this.filterBy = filterBy;
   }
 
+  updateIsDriverDetailViewVisible(isShown: any) {
+    this.isDriverDetailViewVisible = isShown;
+  }
+
   updateLastHoveredDriver(driverName: string) {
     this.lastHoveredDriverName = driverName;
   }
-
 
 }

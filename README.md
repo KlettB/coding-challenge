@@ -1,3 +1,5 @@
+![100% Code Coverage](https://shields.io/badge/coverage-100%25-brightgreen)
+
 # Coding Challenge
 
 ## Prerequisites

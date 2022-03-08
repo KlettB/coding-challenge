@@ -77,6 +77,12 @@ describe('AppComponent', () => {
     expect(component.lastHoveredDriverName).toBe('Nigel');
   });
 
+  it('should update if driver detail view is shown', () => {
+    component.updateIsDriverDetailViewVisible(true);
+
+    expect(component.isDriverDetailViewVisible).toBe(true);
+  });
+
   describe('getMarkerOptions', () => {
 
     it('should return default marker options if driver is not hovered', () => {
@@ -91,6 +97,17 @@ describe('AppComponent', () => {
       const markerOptions = component.getMarkerOptions('Alain Prost');
   
       expect(markerOptions).toEqual({"draggable": false, "opacity": 1})
+    });
+
+    it('should onle return single marker if detail view is shown', () => {
+      component.lastHoveredDriverName = 'Alain Prost';
+      component.isDriverDetailViewVisible = true
+      
+      const markerOptionsActive = component.getMarkerOptions('Alain Prost');
+      const markerOptionsInActive = component.getMarkerOptions('Nigel Mansell');
+  
+      expect(markerOptionsActive).toEqual({"draggable": false, "opacity": 1})
+      expect(markerOptionsInActive).toEqual({"draggable": false, "opacity": 0})
     });
 
   });

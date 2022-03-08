@@ -1,0 +1,14 @@
+.driver-list-wrapper {
+    max-width: 600px !important;
+}
+
+.driver-detail-view {
+    top: 0px;
+    left: 600px;
+    transition: all 0.5s ease;
+
+    &.isShown {
+        left: 0px;
+        transition: all 0.5s ease;
+    }
+}

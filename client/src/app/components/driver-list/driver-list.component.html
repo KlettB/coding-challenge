@@ -1,4 +1,4 @@
-<div class="absolute ml-10 mt-12 w-2/6 h-4/5 z-20 rounded-lg overflow-hidden shadow-2xl bg-white">
+<div class="absolute ml-10 mt-12 w-2/6 h-4/5 z-20 driver-list-wrapper rounded-lg overflow-hidden shadow-2xl bg-white">
 
   <div class="md:flex md:items-center md:justify-between py-6 px-6">
     <div class="flex-1 min-w-0">
@@ -54,8 +54,8 @@
     </div>
   </div>
 
-  <ul role="list" class="bg-white border-t h-full divide-y divide-gray-200 overflow-y-scroll" *ngIf="drivers.length !== 0">
-    <li *ngFor="let driver of drivers | filter: filterBy | sortBy: selectedSortByOption" (mouseenter)="updateLastHoveredDriver(driver.driverName)">
+  <ul role="list" class="bg-white border-t h-full divide-y divide-gray-200 overflow-y-scroll pb-24" *ngIf="drivers.length !== 0">
+    <li (click)="showDriverDetailView(driver)" *ngFor="let driver of drivers | filter: filterBy | sortBy: selectedSortByOption" (mouseenter)="updateLastHoveredDriver(driver.driverName)">
       <a href="#" class="block hover:bg-gray-50">
         <div class="flex items-center px-4 py-4 sm:px-6">
           <div class="min-w-0 flex-1 flex items-center">
@@ -93,5 +93,57 @@
       </a>
     </li>
   </ul>
+
+  <div class="absolute z-30 h-full w-full bg-white driver-detail-view" [ngClass]="isDriverDetailViewVisible ? 'isShown' : ''">
+    
+    <div class="bg-white overflow-hidden">
+      <div class="px-4 pt-5 pb-0 sm:px-6" (click)="hideDriverDetailView()">
+        <h3 class="text-lg leading-6 font-medium text-gray-900 cursor-pointer">←</h3>
+      </div>
+      <div class="px-4 py-5 sm:px-6">
+        <span class="inline-block h-14 w-14 rounded-full overflow-hidden bg-gray-100 -mb-2">
+          <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </span>
+        <div class="inline-block ml-3">
+          <h3 class="text-lg leading-6 font-medium text-gray-900">
+            {{ selectedDriverForDetailView?.driverName }}
+            <img class="h-5 w-5 inline-block -mt-1 ml-1" [src]="'assets/images/flag_' + selectedDriverForDetailView?.driverLanguage + '.svg'" alt="">
+          </h3>
+          <p class="mt-1 max-w-2xl text-sm text-gray-500">{{ selectedDriverForDetailView?.driverInfo }}.</p>
+        </div>
+      </div>
+      <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+        <dl class="sm:divide-y sm:divide-gray-200">
+          <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">Gender</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ selectedDriverForDetailView?.driverGender }}</dd>
+          </div>
+          <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">Phone Number</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ selectedDriverForDetailView?.driverPhone }}</dd>
+          </div>
+          <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">Hometown</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ selectedDriverForDetailView?.driverCityOrigin }}</dd>
+          </div>
+          <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">Km driven</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ selectedDriverForDetailView?.kmDriven }}</dd>
+          </div>
+          <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">Car Brand</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ selectedDriverForDetailView?.carMake }}</dd>
+          </div>
+          <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">Location</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Lat: {{ selectedDriverForDetailView?.location?.lat }}, Lng: {{ selectedDriverForDetailView?.location?.lng }}</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+  </div>
 
 </div>

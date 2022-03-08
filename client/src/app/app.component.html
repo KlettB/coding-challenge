@@ -2,7 +2,7 @@
   
   <navigation [filterBy]="filterBy" (newFilterByEvent)="updateFilterByFromNavigation($event)"></navigation>
 
-  <driver-list [drivers]="drivers" [filterBy]="filterBy" (updateDriverLocation)="loadDrivers()" (newUpdateHoveredDriverEvent)="updateLastHoveredDriver($event)"></driver-list>
+  <driver-list [drivers]="drivers" [filterBy]="filterBy" (updateDriverLocation)="loadDrivers()" (newUpdateHoveredDriverEvent)="updateLastHoveredDriver($event)" (newIsDriverDetailViewVisibileEvent)="updateIsDriverDetailViewVisible($event)"></driver-list>
 
   <div class="flex-1 min-w-0 xl:flex">
     <div class="h-full w-full" *ngIf="isGoogleMapsApiLoaded | async">
