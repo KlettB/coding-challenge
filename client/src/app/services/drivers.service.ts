@@ -20,7 +20,7 @@ export class DriversService {
     }),
   };
   
-  getDrivers(): Observable<Drivers[]> {
+  getDrivers(): Observable<Driver[]> {
     return this.http
       .get<any>(this.apiUrl + '/drivers')
       .pipe(retry(1), catchError(this.handleError));
@@ -42,7 +42,7 @@ export class DriversService {
 
 }
 
-export interface Drivers {
+export interface Driver {
   driverName: string;
   driverGender: string;
   driverCityOrigin: string;

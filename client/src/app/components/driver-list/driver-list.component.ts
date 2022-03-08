@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Driver } from '../../services/drivers.service';
 
 @Component({
   selector: 'driver-list',
@@ -8,14 +9,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class DriverListComponent {
   @Input() drivers: any;
   @Input() filterBy: any;
-  @Output() newUpdateHoveredDriverEvent = new EventEmitter<string>();
-  @Output() newIsDriverDetailViewVisibileEvent = new EventEmitter<boolean>();
-  @Output("updateDriverLocation") updateDriverLocation: EventEmitter<any> = new EventEmitter();
+  @Output() newUpdateHoveredDriverEvent: EventEmitter<string> = new EventEmitter<string>();
+  @Output() newIsDriverDetailViewVisibileEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output("updateDriverLocation") updateDriverLocation: EventEmitter<string> = new EventEmitter<string>();
 
   showSortByMenu: boolean = false;
   isDriverDetailViewVisible: boolean = false;
   selectedSortByOption: string = '';
-  selectedDriverForDetailView: any;
+  selectedDriverForDetailView: Driver | null = null;
 
   constructor() { }
 

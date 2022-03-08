@@ -9,6 +9,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SortPipe } from './pipes/sort.pipe';
 import { DriverListComponent } from './components/driver-list/driver-list.component';
+import { MobieViewStateComponent } from './components/mobie-view-state/mobie-view-state.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { DriverListComponent } from './components/driver-list/driver-list.compon
     NavigationComponent,
     SortPipe,
     DriverListComponent,
+    MobieViewStateComponent,
   ],
   imports: [
     BrowserModule,

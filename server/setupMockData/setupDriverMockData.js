@@ -18,6 +18,5 @@ module.exports.setupDriverMockData = () => {
 
     const drivers = [...new Array(10)].map(() => new Driver())
 
-    // TODO: Use async method to write to file system
     fs.writeFileSync('server/mocks/drivers.json', JSON.stringify(drivers))
 }

@@ -55,8 +55,8 @@
   </div>
 
   <ul role="list" class="bg-white border-t h-full divide-y divide-gray-200 overflow-y-scroll pb-24" *ngIf="drivers.length !== 0">
-    <li (click)="showDriverDetailView(driver)" *ngFor="let driver of drivers | filter: filterBy | sortBy: selectedSortByOption" (mouseenter)="updateLastHoveredDriver(driver.driverName)">
-      <a href="#" class="block hover:bg-gray-50">
+    <li class="cursor-pointer" (click)="showDriverDetailView(driver)" *ngFor="let driver of drivers | filter: filterBy | sortBy: selectedSortByOption" (mouseenter)="updateLastHoveredDriver(driver.driverName)">
+      <div class="block hover:bg-gray-50">
         <div class="flex items-center px-4 py-4 sm:px-6">
           <div class="min-w-0 flex-1 flex items-center">
             <div class="min-w-0 flex-1 md:grid md:grid-cols-2 md:gap-4">
@@ -90,7 +90,7 @@
             </svg>
           </div>
         </div>
-      </a>
+      </div>
     </li>
   </ul>
 
